@@ -241,12 +241,12 @@ class GearGuardAPITester:
             print("   Skipping - No request ID available")
             return False
             
+        # Use query parameter for stage
         success, response = self.run_test(
             "Update Request Stage (Kanban)",
             "PATCH",
-            f"requests/{self.request_id}/stage",
-            200,
-            data="in_progress"
+            f"requests/{self.request_id}/stage?stage=in_progress",
+            200
         )
         
         if success and response.get('stage') == 'in_progress':
