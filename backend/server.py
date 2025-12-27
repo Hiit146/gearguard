@@ -35,14 +35,13 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # Create the main app
 app = FastAPI(title="GearGuard API", version="1.0.0")
 
-from fastapi.middleware.cors import CORSMiddleware
+ffrom fastapi.middleware.cors import CORSMiddleware
+
+CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "*")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=CORS_ORIGINS.split(","),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
