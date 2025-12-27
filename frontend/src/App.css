@@ -1,34 +1,210 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* GearGuard Custom Styles */
+
+/* Industrial grid pattern */
+.grid-pattern {
+    background-image: 
+        linear-gradient(rgba(63, 63, 70, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(63, 63, 70, 0.3) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Crosshair decoration */
+.crosshair::before,
+.crosshair::after {
+    content: '+';
+    position: absolute;
+    color: #52525b;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
+.crosshair::before {
+    top: -5px;
+    left: -5px;
+}
+
+.crosshair::after {
+    bottom: -5px;
+    right: -5px;
+}
+
+/* Status indicators */
+.status-new {
+    border-left: 3px solid #3b82f6;
+}
+
+.status-in-progress {
+    border-left: 3px solid #eab308;
+}
+
+.status-repaired {
+    border-left: 3px solid #10b981;
+}
+
+.status-scrap {
+    border-left: 3px solid #ef4444;
+}
+
+.status-overdue {
+    border-left: 3px solid #ef4444;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%);
+}
+
+/* Card hover effects */
+.card-industrial {
+    background: rgba(24, 24, 27, 0.5);
+    border: 1px solid #27272a;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-industrial:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+}
+
+/* Button press effect */
+.btn-press:active {
+    transform: scale(0.95);
+}
+
+/* Avatar ring */
+.avatar-ring {
+    box-shadow: 0 0 0 2px #09090b, 0 0 0 4px #f97316;
+}
+
+/* Kanban column */
+.kanban-column {
+    min-width: 300px;
+    max-width: 350px;
+}
+
+/* Badge styles */
+.badge-new { background-color: rgba(59, 130, 246, 0.2); color: #3b82f6; border-color: #3b82f6; }
+.badge-in-progress { background-color: rgba(234, 179, 8, 0.2); color: #eab308; border-color: #eab308; }
+.badge-repaired { background-color: rgba(16, 185, 129, 0.2); color: #10b981; border-color: #10b981; }
+.badge-scrap { background-color: rgba(239, 68, 68, 0.2); color: #ef4444; border-color: #ef4444; }
+.badge-corrective { background-color: rgba(239, 68, 68, 0.2); color: #ef4444; border-color: #ef4444; }
+.badge-preventive { background-color: rgba(59, 130, 246, 0.2); color: #3b82f6; border-color: #3b82f6; }
+
+/* Priority badges */
+.priority-high { color: #ef4444; }
+.priority-medium { color: #eab308; }
+.priority-low { color: #10b981; }
+
+/* Glassmorphism overlay */
+.glass-overlay {
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+    background: #0a0a0c;
+    border-right: 1px solid #27272a;
+}
+
+.sidebar-link {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #a1a1aa;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.App-link {
-    color: #61dafb;
+.sidebar-link:hover {
+    background: #18181b;
+    color: #fafafa;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.sidebar-link.active {
+    background: rgba(249, 115, 22, 0.1);
+    color: #f97316;
+    border-left: 2px solid #f97316;
+}
+
+/* Data table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #71717a;
+    border-bottom: 1px solid #27272a;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #27272a;
+}
+
+.data-table tr:hover {
+    background: rgba(24, 24, 27, 0.5);
+}
+
+/* Form inputs */
+.input-industrial {
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 0.25rem;
+    padding: 0.625rem 0.875rem;
+    color: #fafafa;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease;
+}
+
+.input-industrial:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+.input-industrial::placeholder {
+    color: #52525b;
+}
+
+/* Select dropdown */
+.select-industrial {
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 0.25rem;
+    padding: 0.625rem 0.875rem;
+    color: #fafafa;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.75rem;
+    background: #27272a;
+    color: #fafafa;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
 }
